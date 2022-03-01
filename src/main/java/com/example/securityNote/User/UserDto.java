@@ -1,15 +1,19 @@
-package com.example.securityNote.User;
+package com.example.securityNote.user;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import lombok.*;
 // 회원가입 할 때 사용할 dto!
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserDto {
-    // view 에 출력할 변수는 두개만!
-    // 나머지 두개
 
     private String username;
     private String password;
+
+    public UserEntity toEntity(PasswordEncoder passwordEncoder){
+        return new UserEntity(username, passwordEncoder.encode(password));
+    }
+
 }

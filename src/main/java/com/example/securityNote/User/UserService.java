@@ -1,4 +1,4 @@
-package com.example.securityNote.User;
+package com.example.securityNote.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,16 +12,16 @@ public class UserService {
     private final PasswordEncoder passwordEncoder; // 비번 암호화를 위한 클래스
 
     // user 이름이랑 비번으로 회원 등록!
-    public UserEntity signup(String username, String password){
+    public UserEntity signup(UserDto userDto){
 
-        UserEntity target = userRepository.findByUsername(username);
+        UserEntity userEntity = userDto.toEntity(passwordEncoder);
+        UserEntity target = userRepository.findByUsername(userDto.getUsername());
 
         if (target != null){
-            throw null;
+            throw new AlreadyRegisteredUserException();
         }
-        return null;
+        return userRepository.save(userEntity);
+
     }
-
-
 
 }
