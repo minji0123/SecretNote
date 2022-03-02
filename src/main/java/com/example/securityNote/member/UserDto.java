@@ -1,4 +1,4 @@
-package com.example.securityNote.user;
+package com.example.securityNote.member;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import lombok.*;
@@ -12,8 +12,8 @@ public class UserDto {
     private String username;
     private String password;
 
-    public UserEntity toEntity(PasswordEncoder passwordEncoder){
-        return new UserEntity(username, passwordEncoder.encode(password));
-    }
+//    public UserEntity toEntity(PasswordEncoder passwordEncoder){
+//        return new UserEntity(username, passwordEncoder.encode(password));
+//    }
 
 }

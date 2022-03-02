@@ -1,4 +1,4 @@
-package com.example.securityNote.user;
+package com.example.securityNote.member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,12 +21,23 @@ public class UserController {
     }
 
     // 회원가입 post
+//    @PostMapping
+//    public String signupPost(UserDto userDto){
+//        userService.signup(userDto);
+////        userService.signup(userDto.getUsername(), userDto.getPassword());
+//
+//        return "redirect:login";
+//        // 회원가입 후 로그인 페이지로 리다이렉트
+//    }
+
+    // 회원가입 post
     @PostMapping
     public String signupPost(UserDto userDto){
-        userService.signup(userDto);
-//        userService.signup(userDto.getUsername(), userDto.getPassword());
+        userService.signup(userDto.getUsername(), userDto.getPassword());
 
-        return "redirect:/login";
+        return "redirect:login";
         // 회원가입 후 로그인 페이지로 리다이렉트
     }
+
+
 }

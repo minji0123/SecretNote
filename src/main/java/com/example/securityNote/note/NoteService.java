@@ -1,7 +1,7 @@
 package com.example.securityNote.note;
 
-import com.example.securityNote.user.UserEntity;
-import com.example.securityNote.user.UserNotFoundException;
+import com.example.securityNote.member.UserEntity;
+import com.example.securityNote.member.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

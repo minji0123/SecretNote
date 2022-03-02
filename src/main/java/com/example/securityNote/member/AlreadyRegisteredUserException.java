@@ -1,4 +1,4 @@
-package com.example.securityNote.user;
+package com.example.securityNote.member;
 
 // 이미 등록된 유저를 재등록할 때 발생하는 exception
 public class AlreadyRegisteredUserException extends RuntimeException {

@@ -1,6 +1,6 @@
 package com.example.securityNote.note;
 
-import com.example.securityNote.user.UserEntity;
+import com.example.securityNote.member.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,7 +44,7 @@ public class NoteController {
         // 넣어주는 값은 dto 의 getter 를 이용한다.
         noteService.save(userEntity, noteDto.getTitle(),noteDto.getContent());
 
-        return "redirect:/note";
+        return "redirect:note";
     }
 
     // 노트 삭제 delete
@@ -59,7 +59,7 @@ public class NoteController {
         // 단순히 지워주기만 할 것이다.
         noteService.delete(userEntity,id);
 
-        return "redirect:/note";
+        return "redirect:note";
 
     }
 

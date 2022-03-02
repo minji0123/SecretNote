@@ -1,4 +1,4 @@
-package com.example.securityNote.user;
+package com.example.securityNote.member;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

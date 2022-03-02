@@ -1,4 +1,4 @@
-package com.example.securityNote.user;
+package com.example.securityNote.member;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -37,10 +37,10 @@ public class UserEntity implements UserDetails { // UserDetails: spring-security
         this.authority = authority;
     }
 
-    public UserEntity(String username, String encode) {
-        this.username = username;
-        this.password = password;
-    }
+//    public UserEntity(String username, String encode) {
+//        this.username = username;
+//        this.password = password;
+//    }
 
     /* 상속받은 UserDetail 들의 메소드 오버라이딩*/
 

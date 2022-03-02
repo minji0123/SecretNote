@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 // 노트 등록을 위한 dto
+// 공지 등록을 위한 dto
 @Getter
 @Setter
 @AllArgsConstructor

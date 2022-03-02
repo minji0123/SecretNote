@@ -1,6 +1,6 @@
 package com.example.securityNote.note;
 
-import com.example.securityNote.user.UserEntity;
+import com.example.securityNote.member.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
