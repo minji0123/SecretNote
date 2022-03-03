@@ -4,6 +4,7 @@ import com.example.securityNote.member.UserEntity;
 import com.example.securityNote.member.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ public class NoteService {
     private final NoteRepository noteRepository;
 
     // 노트 조회
+    @Transactional(readOnly = true) // 조회만 하기 때문에 readonly
     public List<NoteEntity> find(UserEntity userEntity){
 
         // 유저 없을 때 exception
@@ -26,7 +28,7 @@ public class NoteService {
         // 유저가 관리자면은 id 값으로 모든 게시글 조회 (모든 유저들의 노트를 볼 수 있음)
         // 이때 id 내림차순으로 정렬됨
         if (userEntity.isAdmin()){
-            return noteRepository.findAll(Sort.by(Sort.Direction.DESC,"id"));
+            return noteRepository.findAll(Sort.by(Direction.DESC,"id"));
         }
 
         // 리턴값: 유저 자신이 쓴 노트_id 내림차순

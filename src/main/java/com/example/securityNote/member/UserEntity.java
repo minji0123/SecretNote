@@ -1,7 +1,6 @@
 package com.example.securityNote.member;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,7 +17,6 @@ import java.util.Collections;
 @Table
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 public class UserEntity implements UserDetails { // UserDetails: spring-security 에서 인증, 인가를 할 때 사용
 
     // 유저 id, 유저이름, 비번, 권한
@@ -37,13 +35,11 @@ public class UserEntity implements UserDetails { // UserDetails: spring-security
         this.authority = authority;
     }
 
-//    public UserEntity(String username, String encode) {
-//        this.username = username;
-//        this.password = password;
-//    }
+    public Boolean isAdmin(){
+        return authority.equals("ROLE_ADMIN"); // admin 이랑 같은 권한 리턴?
+    }
 
     /* 상속받은 UserDetail 들의 메소드 오버라이딩*/
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() { // 권한 목록
         return Collections.singleton((GrantedAuthority) () -> authority);
@@ -70,8 +66,4 @@ public class UserEntity implements UserDetails { // UserDetails: spring-security
     public boolean isEnabled() {
         return true;
     } // 계정 유무
-
-    public Boolean isAdmin(){
-        return authority.equals("ROLE_ADMIN"); // admin 이랑 같은 권한 리턴?
-    }
 }

@@ -30,7 +30,7 @@ public class AdminController {
         List<NoteEntity> noteEntityList = noteService.find(userEntity);
 
         // 뷰에 넣어줌!
-        model.addAttribute("noteEntityList", noteEntityList);
+        model.addAttribute("notes", noteEntityList);
         return "admin/index";
     }
 }

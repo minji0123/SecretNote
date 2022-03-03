@@ -19,8 +19,8 @@ public class NoticeController {
     @GetMapping
     public String seeNoticeAll(Model model){
         List<NoticeEntity> noticeEntityList = noticeService.seeAll();
-        model.addAttribute("noticeEntityList",noticeEntityList);
-        return "index";
+        model.addAttribute("notices",noticeEntityList);
+        return "notice/index";
     }
 
     // 공지사항 등록

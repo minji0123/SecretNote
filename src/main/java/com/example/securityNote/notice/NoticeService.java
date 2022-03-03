@@ -2,6 +2,8 @@ package com.example.securityNote.notice;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,11 +17,12 @@ public class NoticeService {
     private final NoticeRepository noticeRepository;
 
     // 공지사항 조회
+    @Transactional(readOnly = true)
     public List<NoticeEntity> seeAll(){
 //        List<NoticeEntity> noticeEntityList = noticeRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
 //        return noticeEntityList;
 
-        return noticeRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        return noticeRepository.findAll(Sort.by(Direction.DESC, "id"));
     }
 
     // 공지사항 작성

@@ -54,4 +54,10 @@ public class UserService {
         // save 메소드 발동
         return userRepository.save(new UserEntity(username,passwordEncoder.encode(password),"ROLE_ADMIN"));
     }
+
+    // SpringSecurityConfig 에서 사용할 메소드
+    // security 에게 user 를 어떻게 가져오는지 알려줌
+    public UserEntity findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 }
