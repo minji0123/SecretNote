@@ -33,6 +33,8 @@ public class NoticeController {
         return "redirect:notice";
     }
 
+    // 공지사항 수정
+
     // 공지사항 삭제
     @DeleteMapping
     public String deleteNotice(@RequestParam Long id){

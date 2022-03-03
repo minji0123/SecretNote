@@ -43,4 +43,16 @@ public class NoteEntity {
         this.content = content;
         this.user = user;
     }
+
+    public void patch(NoteEntity noteEntity){
+        if(noteEntity.title != null){
+            this.title = noteEntity.title;
+        }
+        if(noteEntity.content != null){
+            this.content = noteEntity.content;
+        }
+        if(noteEntity.user != null){
+            this.user = noteEntity.user;
+        }
+    }
 }

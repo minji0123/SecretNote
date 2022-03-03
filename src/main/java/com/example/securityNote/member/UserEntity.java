@@ -66,4 +66,5 @@ public class UserEntity implements UserDetails { // UserDetails: spring-security
     public boolean isEnabled() {
         return true;
     } // 계정 유무
+
 }

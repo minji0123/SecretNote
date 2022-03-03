@@ -49,6 +49,23 @@ public class NoteService {
         return noteRepository.save(new NoteEntity(title, content, userEntity));
     }
 
+    // 노트 수정
+    public NoteEntity update(UserEntity userEntity, Long id, String title, String content){
+
+        // 유저 없을 때 exception
+        if (userEntity == null){
+            throw new UserNotFoundException();
+        }
+
+        NoteEntity noteEntity = noteRepository.findByIdAndUser(id, userEntity);
+
+        if (noteEntity == null || id != userEntity.getId()){
+            return null;
+        }
+
+        noteEntity.patch(new NoteEntity(title,content,userEntity));
+        return noteRepository.save(noteEntity);
+    }
     // 노트 삭제
     public void delete(UserEntity userEntity, Long id){
         // 노트 삭제에는 id 값만 필요함

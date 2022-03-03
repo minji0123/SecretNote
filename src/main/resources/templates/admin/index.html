@@ -15,24 +15,38 @@
 <body>
     <!-- fragments 의 navigation bar -->
     <div th:insert="fragments.html::nav"></div>
+    <div style="margin-bottom:50px;"></div>
 
     <!-- 관리자만 접근할 수 있는 페이지 -->
     <div class="container">
-        <h1>admin page</h1>
-        <h3>노트 게시 내역</h3>
+        <h3>유저 노트 게시 내역</h3>
+        <div style="margin-bottom:30px;"></div>
 
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
                 <div th:each="note : ${notes}">  <!--th:each 반복문-->
-                    <p style="margin: 10px 0px;">
-                        <strong th:text="${note.title}"></strong> <!--th:text 값 넣기-->
-                        Posted by
-                        <strong th:if="${note.user}" th:text="${note.user.username}"></strong> on  <!--th:if if 문-->
-                        <strong th:text="${#temporals.format(note.createdAt, 'yyyy-MM-dd')}"></strong> <!--th:text 값 넣기-->
-                    </p>
+
+<!--                    <p style="margin: 10px 0px;">-->
+<!--                        <strong th:text="${note.title}"></strong> &lt;!&ndash;th:text 값 넣기&ndash;&gt;-->
+<!--                        Posted by-->
+<!--                        <strong th:if="${note.user}" th:text="${note.user.username}"></strong> on  &lt;!&ndash;th:if if 문&ndash;&gt;-->
+<!--                        <strong th:text="${#temporals.format(note.createdAt, 'yyyy-MM-dd')}"></strong> &lt;!&ndash;th:text 값 넣기&ndash;&gt;-->
+<!--                    </p>-->
+                    <div class="card">
+                        <h5 class="card-header" th:text="${note.title}"></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Posted by <strong th:if="${note.user}" th:text="${note.user.username}"> </strong></li>
+                            <li class="list-group-item">on <strong th:text="${#temporals.format(note.createdAt, 'yyyy-MM-dd')}" > </strong></li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </div>
+
+
+
 
     </div>
 

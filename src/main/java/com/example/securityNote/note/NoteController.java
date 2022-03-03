@@ -47,6 +47,18 @@ public class NoteController {
         return "redirect:note";
     }
 
+    // 노트 수정 patch
+    @PatchMapping
+    public String updateNote(Authentication authentication, @RequestParam Long id, @ModelAttribute NoteDto noteDto){
+
+        // 인증받은 유저를 담음
+        UserEntity userEntity = (UserEntity) authentication.getPrincipal();
+
+        noteService.update(userEntity, id, noteDto.getTitle(),noteDto.getContent());
+
+        return "redirect:note";
+    }
+
     // 노트 삭제 delete
     @DeleteMapping
     public String deleteNote(Authentication authentication, @RequestParam Long id){
