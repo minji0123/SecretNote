@@ -24,10 +24,9 @@ public class InitializeDefaultConfig {
     @Bean
     public void initializeDefaultUser() {
         UserEntity user = userService.signup("user", "user");
-        noteService.save(user, "테스트", "테스트입니다.");
-        noteService.save(user, "테스트2", "테스트2입니다.");
-        noteService.save(user, "테스트3", "테스트3입니다.");
-        noteService.save(user, "여름 여행계획", "여름 여행계획 작성중...");
+        noteService.save(user, "첫 노트 작성", "처음 작성한 노트!");
+        noteService.save(user, "이번년도 목표", "멋진 개발자 되기");
+        noteService.save(user, "강아지", "강아지 키우고 싶당");
     }
 
     /*
