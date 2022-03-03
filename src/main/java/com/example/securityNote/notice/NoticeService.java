@@ -29,10 +29,23 @@ public class NoticeService {
     // title, content 를 파라미터로 넣어서 내용을 저장함
     public NoticeEntity save(String title, String content){
 
-//        NoticeEntity noticeEntity = noticeRepository.save(new NoticeEntity (title, content));
-//        return noticeEntity;
         return noticeRepository.save(new NoticeEntity (title, content));
     }
+
+    // 공지사항 수정
+    public NoticeEntity update(Long id, String title, String content){
+
+        NoticeEntity noticeEntity = noticeRepository.findById(id).orElse(null);
+
+        if(noticeEntity == null){
+            return null;
+        }
+        noticeEntity.patch(noticeEntity);
+
+        return noticeRepository.save(noticeEntity);
+    }
+
+
 
     // 공지사항 삭제
     public void delete(Long id){

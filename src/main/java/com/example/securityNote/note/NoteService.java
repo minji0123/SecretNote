@@ -59,13 +59,14 @@ public class NoteService {
 
         NoteEntity noteEntity = noteRepository.findByIdAndUser(id, userEntity);
 
-        if (noteEntity == null || id != userEntity.getId()){
+        if (noteEntity == null){
             return null;
         }
 
         noteEntity.patch(new NoteEntity(title,content,userEntity));
         return noteRepository.save(noteEntity);
     }
+
     // 노트 삭제
     public void delete(UserEntity userEntity, Long id){
         // 노트 삭제에는 id 값만 필요함

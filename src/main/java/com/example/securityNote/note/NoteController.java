@@ -40,15 +40,14 @@ public class NoteController {
         // 인증받은 유저를 담음
         UserEntity userEntity = (UserEntity) authentication.getPrincipal();
 
-        // service 의 메소드 save 에 값을 넣어준다.
-        // 넣어주는 값은 dto 의 getter 를 이용한다.
+        // service 의 메소드 save 에 값을 넣어준다. 넣어주는 값은 dto 의 getter 를 이용한다.
         noteService.save(userEntity, noteDto.getTitle(),noteDto.getContent());
 
         return "redirect:note";
     }
 
     // 노트 수정 patch
-    @PatchMapping
+    @PostMapping("/edited")
     public String updateNote(Authentication authentication, @RequestParam Long id, @ModelAttribute NoteDto noteDto){
 
         // 인증받은 유저를 담음
@@ -56,7 +55,7 @@ public class NoteController {
 
         noteService.update(userEntity, id, noteDto.getTitle(),noteDto.getContent());
 
-        return "redirect:note";
+        return "redirect:";
     }
 
     // 노트 삭제 delete

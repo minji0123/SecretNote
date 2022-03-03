@@ -43,4 +43,14 @@ public class NoticeEntity {
         this.title = title;
         this.content = content;
     }
+
+    public void patch(NoticeEntity noticeEntity){
+        if (noticeEntity.title != null){
+            this.title = noticeEntity.title;
+        }
+        if (noticeEntity.content != null){
+            this.content = noticeEntity.content;
+        }
+
+    }
 }

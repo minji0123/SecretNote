@@ -39,7 +39,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         // 요청에 대한 권한을 지정
         http.authorizeRequests() // 시큐리티 처리에 HttpServletRequest 를 이용
                 .antMatchers("/","/home","/signup").permitAll() // 모두에게 허용
-                .antMatchers("/admin").hasRole("ADMIN") // notice 페이지는 admin 에게 허용
+                .antMatchers("/admin").hasRole("ADMIN") // admin 페이지는 admin 에게 허용
                 .antMatchers(HttpMethod.POST,"/notice").hasRole("ADMIN") // notice 페이지 생성 권한은 admin
                 .antMatchers(HttpMethod.DELETE,"/notice").hasRole("ADMIN") // notice 페이지 삭제 권한은 admin
                 .antMatchers("/note").hasRole("USER") // note 페이지는 user 에게 허용

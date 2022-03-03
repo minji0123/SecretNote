@@ -34,6 +34,12 @@ public class NoticeController {
     }
 
     // 공지사항 수정
+    @PostMapping("/edited")
+    public String updateNotice(@RequestParam Long id, @ModelAttribute NoteDto noteDto){
+
+        noticeService.update(id,noteDto.getTitle(),noteDto.getContent());
+        return "redirect:notice";
+    }
 
     // 공지사항 삭제
     @DeleteMapping
