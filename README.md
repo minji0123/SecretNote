@@ -49,32 +49,32 @@
 
 # main page
 
-<img src="img/main.png" width="500px">
+<img src="img/main.png" width="700px">
 
 비밀 노트의 메인 페이지 입니다.
 
 ### all nav
 
-<img src="img/nav1.png" width="500px">
+<img src="img/nav1.png" width="700px">
 
 모든 사람에게 보이는 nav 바 입니다.   
 
 ### user nav
 
-<img src="img/usernav.png" width="500px">
+<img src="img/usernav.png" width="700px">
 
 로그인한 유저에게 보이는 nav 바 입니다.
 
 ### admin nav
 
-<img src="img/adminnav.png" width="500px">
+<img src="img/adminnav.png" width="700px">
 
 관리자에게 보이는 nav 바 입니다.
 
 
 # sign up page
 
-<img src="img/signup1.png" width="500px">
+<img src="img/signup1.png" width="700px">
 
 회원가입 페이지 입니다.   
 아이디와 비밀번호를 입력 후, 회원가입 버튼을 누르면   
@@ -82,7 +82,7 @@
 
 # login page
 
-<img src="img/login.png" width="500px">
+<img src="img/login.png" width="700px">
 
 로그인 페이지 입니다.   
 아이디와 비밀번호를 입력 후, 로그인 버튼을 누르면    
@@ -94,22 +94,22 @@
 # user page
 ## user note page
 
-<img src="img/usernote.png" width="500px">
+<img src="img/usernote.png" width="00px">
 
 유저가 노트를 작성할 수 있는 페이지 입니다.
 
 
 개인 노트를 작성할 수 있습니다.   
-<img src="img/usernote2.png" width="500px">
+<img src="img/usernote2.png" width="700px">
 
 
 새 글쓰기 버튼을 누르면 alert 창이 뜹니다.   
 
-<img src="img/notealert.png" width="300px">
+<img src="img/notealert.png" width="500px">
 
 ## user notice page
 
-<img src="img/usernotice.png" width="500px">
+<img src="img/usernotice.png" width="700px">
 
 유저가 볼 수 있는 공지 페이지 입니다.
 관리자가 작성한 공지를 확인할 수 있습니다.
@@ -119,7 +119,7 @@
 
 ## admin note page
 
-<img src="img/adminnote.png" width="500px">
+<img src="img/adminnote.png" width="700px">
 
 관리자의 노트 페이지 입니다.   
 관리자는 인증 단계를 거친 모든 유저들의 노트 목록을 볼 수 있습니다.
@@ -127,8 +127,8 @@
 
 ## admin notice page
 
-<img src="img/adminnotice.png" width="500px">
-<img src="img/adminnote2.png" width="500px">
+<img src="img/adminnotice.png" width="700px">
+<img src="img/adminnote2.png" width="700px">
 
 관리자가 볼 수 있는 공지 페이지 입니다.   
 관리자만이 새 공지글 작성을 할 수 있습니다.   
