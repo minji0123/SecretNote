@@ -3,13 +3,17 @@
 🙅‍♀️비밀노트입니다.
 
 # class 정보
-### member Package
+### 💛 member Package
 유저,관리자 회원가입, 정보를 저장하는 package
+
+<details>
+<summary>자세히 보기</summary>
+<div markdown="1">
 
 - UserEntity: db 에 접근할 수 있는 user 정보
 - UserDto: view 에 전달할 user 정보 (회원가입용)   
 - UserRepository: db 에서 user 데이터를 꺼내옴   
-- UserController: user 회원가입 control
+- UserController: 회원가입 control
 - AdminController: 모든 유저의 노트 조회_어드민이 접근할 수 있는 노트 조회 package (user 는 못봄)
 - UserService: 회원가입 메소드 구현(유저, 관리자)
   - passwordEncoder 를 사용하기 위해서는 Bean 을 주입받아야 한다.(configPackage)   
@@ -17,26 +21,54 @@
   
 - AlreadyRegisteredUserException: 이미 있는 유저인 경우 exception
 - UserNotFoundException: 유저를 찾을 수 없을 때 exception
+
+</div>
+</details>
+
 <hr>
 
-### note Package
+### 💛 note Package
 유저가 작성할 수 있는 노트 package (admin 도 보기 가능)
+
+<details>
+<summary>자세히 보기</summary>
+<div markdown="1">
+
 - NoteEntity: db 에 접근할 수 있는 note 정보
 - NoteDto: view 에 전달할 note 정보
 - NoteRepository: db 에서 note 데이터를 꺼내옴(조회, 삭제를 위함)
 - NoteController: note 조회, 생성, 삭제 
 - NoteService: note 조회, 생성, 삭제 메소드 구현
+
+</div>
+</details>
+
 <hr>
 
-### noticePackage
-어드민이 작성할 수 있는 공지 package (user 는 볼 수 없음)
+### 💛 noticePackage
+
+관리자가 작성할 수 있는 공지 package (user 는 볼 수 없음)
+
+<details>
+<summary>자세히 보기</summary>
+<div markdown="1">
+
 - NoticeEntity: db 에 접근할 수 있는 공지 정보
 - NoticeRepository
 - NoticeController: 공지 조회, 생성, 삭제
 - NoticeService: 공지 조회, 생성, 삭제 메소드 구현
+
+</div>
+</details>
+
 <hr>
 
-### config
+### 💛 config package
+
+<details>
+<summary>자세히 보기</summary>
+<div markdown="1">
+
 인증, 인가를 구현하는 package
 - passwordEncoderConfig: 비번 암호화 config
   - passwordEncoder 를 사용하기 위해서는 Bean 을 주입받아야 한다.(configPackage)
@@ -44,6 +76,20 @@
 - MvcConfig: view 페이지 설정 (url => html )
 - SpringSecurityConfig: security 설정
 - InitializeDefaultConfig: default 데이터 설정
+
+</div>
+</details>
+
+
+# 🙍‍♂️ default 계정 정보
+
+- user
+  - 아이디: user 
+  - 비밀번호: user
+- admin
+  - 아이디: admin 
+  - 비밀번호: admin
+
 
 # 🔎 view 정보
 
