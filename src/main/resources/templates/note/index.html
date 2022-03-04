@@ -19,16 +19,17 @@
     <div style="margin-bottom:50px;"></div>
 
     <div class="container">
-
         <div style="margin-bottom:30px;"></div>
 
-        <h1 >개인 노트</h1>
+        <h1 class="note-notice-title">개인 노트</h1>
 
         <!-- 노트 작성 Modal Button -->
         <button type="button" class="btn btn-outline-secondary new-btn" data-bs-toggle="modal" data-bs-target="#newNoteModal" data-bs-whatever="@mdo">
            new
         </button>
-        <div style="margin-bottom:30px;"></div>
+
+        <div style="margin-bottom:20px; clear: both;"></div>
+        <hr>
 
         <!-- 노트 작성 Modal -->
         <div class="modal fade" id="newNoteModal" tabindex="-1" aria-labelledby="newNoteModalLabel" aria-hidden="true">
@@ -66,14 +67,14 @@
 
         <!-- 노트 내용 조회 -->
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+
+
                 <!-- 노트 개수만큼 반복 -->
                 <div class="card note-list" th:each="note : ${notes}">
                     <div class="card-header">
                         <h4 th:text="${note.title}" class="card-title"></h4>
                         <!-- 작성일자 표시 -->
                         <span th:text="${#temporals.format(note.createdAt, 'yyyy-MM-dd')}"></span>
-
                     </div>
 
                     <div class="card-body">
@@ -104,7 +105,7 @@
                                     <div class="modal-body">
                                         <div class="mb-3">
                                             <label for="title" class="col-form-label">제목</label>
-                                            <input type="text" class="form-control" id="edittitle" name="title"  th:value="${note.title}" th:text="${note.title}">
+                                            <input type="text" class="form-control" id="edittitle" name="title"  th:value="${note.title}">
                                         </div>
                                         <div class="mb-3">
                                             <label for="content" class="col-form-label">내용</label>
@@ -123,13 +124,12 @@
 
                             </div>
                         </div>
-                    </div>
-                    <!-- 노트 수정 Modal -->
+                    </div><!-- 노트 수정 Modal -->
 
-                </div>
+                </div><!-- 노트 개수만큼 반복 -->
                 <div style="margin-bottom:30px;"></div>
+
             </div>
-        </div>
 
 
     </div>

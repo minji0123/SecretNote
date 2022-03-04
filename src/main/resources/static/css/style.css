@@ -1,6 +1,3 @@
-body{
-
-}
 .form-signin {
     max-width: 330px;
     padding: 15px;
@@ -33,18 +30,29 @@ body{
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
-.note-list{
-margin-bottom: 30px;
+.card-img{
+    height: 700px;
+    object-fit: cover;
 }
-.date{
-     margin: 10px 0px;
-     margin-left: 20px;
+.note-list{
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 0px;
+}
+.nav-link{
+    margin-left: 20px;
+}
+.note-notice-title{
+    float: left;
 }
 .card-title{
     margin-top: 10px;
 }
 .new-btn{
-    margin-top: 10px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 15px;
+    border: none;
 }
 
 .edit-btn{

@@ -19,15 +19,18 @@
     <div style="margin-bottom:50px;"></div>
 
     <div class="container">
-        <h1>공지사항</h1>
         <div style="margin-bottom:30px;"></div>
+        <h1 class="note-notice-title">공지사항</h1>
 
         <!-- 공지 작성 Modal Button (admin 만 보임)-->
-        <button type="button" class="btn btn-outline-secondary" sec:authorize="hasAnyRole('ROLE_ADMIN')" data-bs-toggle="modal" data-bs-target="#newNoticeModal" data-bs-whatever="@mdo">
-            새 글 쓰기
+        <button type="button" class="btn btn-outline-secondary new-btn" sec:authorize="hasAnyRole('ROLE_ADMIN')" data-bs-toggle="modal" data-bs-target="#newNoticeModal" data-bs-whatever="@mdo">
+            new
         </button>
-        <div style="margin-bottom:30px;"></div>
 
+        <div style="margin-bottom:20px; clear: both;"></div>
+        <hr>
+
+        <div style="margin-bottom:30px;"></div>
         <!-- 공지사항 작성 Modal -->
         <div class="modal fade" id="newNoticeModal" tabindex="-1" aria-labelledby="newNoticeModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -50,8 +53,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
+                            <button type="submit" class="btn btn-outline-secondary">저장</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">종료</button>
-                            <button type="submit" class="btn btn-primary">저장</button>
                         </div>
                     </form>
 
@@ -63,35 +66,68 @@
 
         <!-- 공지사항 내용 조회 -->
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
                 <!-- 공지사항 개수만큼 반복 -->
-                <div class="card" th:each="notice : ${notices}"> <!--th:each 반복문-->
-                    <h5 class="card-header" th:text="${notice.title}"></h5>
+                <div class="card note-list" th:each="notice : ${notices}"> <!--th:each 반복문-->
+                    <div class="card-header">
+                    <h4 th:text="${notice.title}" class="card-title"></h4>
+                        <!-- 작성일자 표시 -->
+                        <span th:text="${#temporals.format(notice.createdAt, 'yyyy-MM-dd')}"></span>
+                    </div>
 
                     <div class="card-body">
                         <p th:text="${notice.content}" style="white-space: pre-wrap;"></p>
-
                         <!-- 공지 삭제 form -->
                         <form th:action="@{/notice}" th:method="delete">
                             <input type="hidden" name="id" th:value="${notice.id}">
                             <!-- 공지사항 삭제 버튼 (admin 만 보임) -->
-                            <button type="submit" class="btn btn-secondary" sec:authorize="hasAnyRole('ROLE_ADMIN')">삭제</button>
-                            <!-- 작성일자 표시 -->
-                            <span style="margin: 10px 0px;">
-                                Posted On <strong th:text="${#temporals.format(notice.createdAt, 'yyyy-MM-dd')}"></strong>
-                            </span>
+                            <button type="submit" class="btn btn-secondary del-btn" sec:authorize="hasAnyRole('ROLE_ADMIN')">delete</button>
+                            <!-- 노트 공지사항 Modal Button -->
+                            <button type="button" class="btn btn-secondary edit-btn" data-bs-toggle="modal" data-bs-target="#editNoticeModal" data-bs-whatever="@mdo" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+                                edit
+                            </button>
                         </form>
-
                     </div>
-                </div>
-                <!-- 공지사항 개수만큼 반복 -->
+
+                    <!-- 공지 수정 Modal -->
+                    <div class="modal fade" id="editNoticeModal" tabindex="-1" aria-labelledby="editNoteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editNoteModalLabel">글 수정</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+
+                                <!--공지 수정 form-->
+                                <form th:action="@{/notice/edited}" method="post">
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="title" class="col-form-label">제목</label>
+                                            <input type="text" class="form-control" id="edittitle" name="title"  th:value="${notice.title}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="content" class="col-form-label">내용</label>
+                                            <textarea class="form-control" rows="10" id="editcontent" name="content" th:value="${notice.content}" th:text="${notice.content}"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" name="id" th:value="${notice.id}">
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-secondary">저장</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                                    </div>
+                                </form><!--공지 수정 form-->
+
+
+                            </div>
+                        </div>
+                    </div><!-- 공지 수정 Modal -->
+                </div><!-- 공지사항 개수만큼 반복 -->
                 <div style="margin-bottom:30px;"></div>
 
 
             </div>
-        </div>
-        <div style="margin-bottom:30px;"></div>
     </div>
 </body>
 </html>
