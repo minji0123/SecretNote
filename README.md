@@ -121,7 +121,7 @@ Dto 는 noteDto 를 공유
 
 # sign up page
 
-<img src="img/signup1.png" width="300px">
+<img src="img/signup1.png" width="500px">
 
 회원가입 페이지 입니다.   
 아이디와 비밀번호를 입력 후, 회원가입 버튼을 누르면   
@@ -129,7 +129,7 @@ Dto 는 noteDto 를 공유
 
 # login page
 
-<img src="img/login.png" width="300px">
+<img src="img/login.png" width="500px">
 
 로그인 페이지 입니다.   
 아이디와 비밀번호를 입력 후, 로그인 버튼을 누르면    
@@ -141,20 +141,20 @@ Dto 는 noteDto 를 공유
 # user page
 ## user note page
 
-<img src="img/usernote.png" width="300px">
+<img src="img/usernote.png" width="500px">
 
 유저가 노트를 작성할 수 있는 페이지 입니다.   
 개인 노트를 작성, 수정, 삭제할 수 있습니다.   
 
 
-<img src="img/usernote2.png" width="300px">
-<img src="img/usernote3.png" width="300px">
+<img src="img/usernote2.png" width="500px">
+<img src="img/usernote3.png" width="500px">
 
 new, edit 버튼을 누르면 alert 창이 뜹니다.   
 
 ## user notice page
 
-<img src="img/usernotice.png" width="300px">
+<img src="img/usernotice.png" width="500px">
 
 유저가 볼 수 있는 공지 페이지 입니다.
 관리자가 작성한 공지를 확인할 수 있습니다.
@@ -164,7 +164,7 @@ new, edit 버튼을 누르면 alert 창이 뜹니다.
 
 ## admin note page
 
-<img src="img/adminnote.png" width="300px">
+<img src="img/adminnote.png" width="500px">
 
 관리자의 노트 페이지 입니다.   
 관리자는 인증 단계를 거친 모든 유저들의 노트 목록을 볼 수 있습니다.
@@ -172,7 +172,7 @@ new, edit 버튼을 누르면 alert 창이 뜹니다.
 
 ## admin notice page
 
-<img src="img/adminnotice.png" width="300px">
+<img src="img/adminnotice.png" width="500px">
 <!-- <img src="img/adminnote2.png" width="900px"> -->
 
 관리자가 볼 수 있는 공지 페이지 입니다.   
